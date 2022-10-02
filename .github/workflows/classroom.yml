@@ -15,6 +15,37 @@ jobs:
       - name: Autograding
         uses: education/autograding@v1
         continue-on-error: true
+        
+      - name: set up JDK 17
+        uses: actions/setup-java@v1
+        with:
+            java-version: 17
+            cache: gradle
+            
+      - name: set up gradle
+        uses: gradle/gradle-build-action@v2
+            
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+        
+      - name: Build with Gradle
+        run: ./gradlew build
+        
+      - name: Heroku
+        uses: actions/checkout@v2
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: rsoi-lab01-bryanskaya
+          heroku_email: bryanskayakatya@yandex.ru
+          usedocker: true
+          
+      - name: Run postman tests
+        uses: actions/checkout@master
+        uses: matt-ball/newman-action@master
+        with:
+          collection: postman/[inst] Lab1.postman_collection.json
+          environment: postman/[inst][heroku] Lab1.postman_environment.json
 
       - name: Github auto grader mark
         uses: Romanow/google-sheet-autograder-marker@v1.0

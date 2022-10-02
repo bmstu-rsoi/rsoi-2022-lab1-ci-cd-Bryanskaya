@@ -1,10 +1,8 @@
 package ru.bmstu.personservice.service;
 
-import javax.validation.ConstraintViolationException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.annotation.DirtiesContext;
 import ru.bmstu.personservice.dto.PersonDto;
 
@@ -43,7 +41,7 @@ public class PersonServiceImplTest {
                 .setWork("town")
                 .setAge(48);
 
-        assertThrows(DataIntegrityViolationException.class,
+        assertThrows(Exception.class,
                 () -> { personService.createPerson(personDto_test); });
     }
 
@@ -55,7 +53,7 @@ public class PersonServiceImplTest {
                 .setWork("town")
                 .setAge(-12);
 
-        assertThrows(ConstraintViolationException.class,
+        assertThrows(Exception.class,
                 () -> { personService.createPerson(personDto_test); });
     }
 

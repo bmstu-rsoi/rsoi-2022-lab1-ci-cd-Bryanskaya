@@ -2,6 +2,7 @@ package ru.bmstu.personservice.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ public class PersonEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NonNull
     @Column(name = "name", nullable = false)
     private String name;
 
