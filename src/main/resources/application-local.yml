@@ -1,5 +1,5 @@
 spring:
   datasource:
-    url: jdbc:postgresql://host.docker.internal:5433/persons
-    username: program
-    password: test
+    url: jdbc:postgresql://ec2-44-208-88-195.compute-1.amazonaws.com:5432/persons
+    username: aodleyafedywwq
+    password: 00905307bc494bf54c9b691e90e1c4b33b2e9fd7bda461e30475d6a052a43f2b
