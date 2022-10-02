@@ -1,0 +1,8 @@
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/master.yaml
+  datasource:
+    url: jdbc:postgresql://ec2-44-208-88-195.compute-1.amazonaws.com:5432/dcvhl8ut9h45cc # jdbc:postgresql://localhost:5433/persons
+    username: aodleyafedywwq # program
+    password: 00905307bc494bf54c9b691e90e1c4b33b2e9fd7bda461e30475d6a052a43f2b # test
