@@ -17,6 +17,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
+    implementation("org.liquibase:liquibase-core")
     implementation("org.hibernate:hibernate-gradle-plugin:5.6.11.Final")
     implementation("org.hibernate:hibernate-validator:8.0.0.Final")
     implementation("javax.validation:validation-api:2.0.1.Final")
